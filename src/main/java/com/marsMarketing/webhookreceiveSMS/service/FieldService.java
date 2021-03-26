@@ -41,17 +41,17 @@ public class FieldService {
 
 	public void writeToCsvFile(final FieldDto fieldDto) {
 		try {
-			if (!new File("./requetePost/").exists()) {
+			if (!new File("/opt/tomcat/webapps/requetePost/").exists()) {
 				// Créer le dossier avec tous ses parents
-				new File("./requetePost/").mkdirs();
+				new File("/opt/tomcat/webapps/requetePost/").mkdirs();
 			}
 			// Recevoir le fichier
-			File f = new File("./requetePost/example.txt");
+			File f = new File("/opt/tomcat/webapps/requetePost/example.txt");
 			// Créer un nouveau fichier
 			// Vérifier s'il n'existe pas
 			if (f.createNewFile()) {
 				System.out.println("File created");
-				FileWriter fichier = new FileWriter("./requetePost/example.txt");
+				FileWriter fichier = new FileWriter("/opt/tomcat/webapps/requetePost/example.txt");
 				fichier.write("From");
 				fichier.write(";");
 				fichier.write("To");
@@ -66,7 +66,7 @@ public class FieldService {
 			} else
 				System.out.println("File already exists");
 		
-			FileWriter fichier = new FileWriter("./requetePost/example.txt", true);
+			FileWriter fichier = new FileWriter("/opt/tomcat/webapps/requetePost/example.txt", true);
 
 			fichier.write(fieldDto.getFrom());
 			fichier.write(";");

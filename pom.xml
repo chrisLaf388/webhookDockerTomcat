@@ -11,6 +11,7 @@
 	<groupId>com.marsMarketing</groupId>
 	<artifactId>webhook-receiveSMS</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>webhook-receiveSMS</name>
 	<description>webhook who receive POST from diabolo</description>
 	<properties>

@@ -39,10 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	System.out.println("WebSecurityConfig - configure");
     	// Permettre aprés modification de modifier des données 
         http.csrf().disable();
+        http.cors().disable();
+        
         
         // Toutes les requêtes envoyées a serveur web doivent être authentifiées
-        http.authorizeRequests().anyRequest().authenticated();
- 
+        //http.authorizeRequests().anyRequest().authenticated();
+        http.authorizeRequests().antMatchers("/**").permitAll();
         // Use AuthenticationEntryPoint to authenticate user/password
         http.httpBasic().authenticationEntryPoint(authEntryPoint);        
         
