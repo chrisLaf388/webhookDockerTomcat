@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FieldDto implements Serializable {
-	//???
+	
 	private static final long serialVersionUID = 1L;
 
 	private String to;

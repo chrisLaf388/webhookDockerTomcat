@@ -2,11 +2,14 @@ package com.marsMarketing.webhookreceiveSMS.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.marsMarketing.webhookreceiveSMS.dto.FieldDto;
@@ -58,8 +61,9 @@ public class FieldController {
      * @param  fieldDto Field to save
      * @return  the field saved
      */
-    @PostMapping(value = "/saveField")
-    public @ResponseBody FieldDto saveField(@RequestBody final FieldDto fieldDto) {
+    
+    @RequestMapping(value = "/saveField", method = RequestMethod.POST,consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public @ResponseBody FieldDto saveField(final FieldDto fieldDto) {
         this.fieldService.addTofieldsDto(fieldDto);
         this.fieldService.writeToCsvFile(fieldDto);
         return fieldDto;
